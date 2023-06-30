@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "cats-api",
+    "slug": "cats-api",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

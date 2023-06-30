@@ -1,12 +1,14 @@
 export default {
   COLORS: {
-    BACKGROUND: '#ffffff',
-    PRIMARY: '#ffd6e4',
-    ALERT: '#ff0000',
+    BACKGROUND: '#f7f7f7',
+    PRIMARY: '#f9d4e4',
+    SECONDARY1: '#e4aac1', // Tom mais escuro
+    SECONDARY2: '#b37b8f', // Tom ainda mais escuro
+    ALERT: '#ff6666',
     DISABLED: '#cccccc',
-    INPUT: '#eeeeee',
-    TEXT: '#202020',
-    TEXT_LIGHT: '#303030',
+    INPUT: '#f2f2f2',
+    TEXT: '#333333',
+    TEXT_LIGHT: '#666666',
   },
   FONTS: {
     REGULAR: 'Lato_400Regular',

@@ -7,12 +7,13 @@ import { Onboarding } from '../modules/Auth';
 import theme from '../theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { useAuth } from '../contexts/lib/Auth';
 import { Favorites, Home, Profile } from '../modules/Home';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-const AuthStack = () => (
+const AppStack = () => (
     <Tab.Navigator
         screenOptions={({ route }) => ({
             tabBarIcon: ({ focused, color, size }) => {
@@ -26,18 +27,18 @@ const AuthStack = () => (
                     iconName = 'account';
                 }
 
-                const iconSize = focused ? size + RFValue(12) : size; // Increase size when focused
+                const iconSize = focused ? size + RFValue(12) : size;
 
                 return (
                     <MaterialCommunityIcons
                         name={iconName}
                         size={iconSize}
-                        color={theme.COLORS.SECONDARY1}
+                        color={color}
                     />
                 );
             },
-            tabBarActiveTintColor: theme.COLORS.TEXT,
-            tabBarInactiveTintColor: theme.COLORS.DISABLED,
+            tabBarActiveTintColor: theme.COLORS.TERCIARY,
+            tabBarInactiveTintColor: theme.COLORS.TEXT,
             tabBarStyle: {
                 backgroundColor: theme.COLORS.PRIMARY,
             },
@@ -51,7 +52,7 @@ const AuthStack = () => (
     </Tab.Navigator>
 );
 
-const AppStack = () => (
+const AuthStack = () => (
     <Stack.Navigator
         screenOptions={{
             headerShown: false,
@@ -64,11 +65,15 @@ const AppStack = () => (
 );
 
 const Navigation: React.FC = () => {
-    const isLoggedIn = false;
+    const { isLoggedIn, isLoading } = useAuth();
+
+    if (isLoading) {
+        return null;
+    }
 
     return (
         <NavigationContainer>
-            { !isLoggedIn ? <AppStack /> : <AuthStack />}
+            {isLoggedIn ? <AppStack /> : <AuthStack />}
         </NavigationContainer>
     );
 };

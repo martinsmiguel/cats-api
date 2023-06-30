@@ -62,7 +62,9 @@ export const Input = styled.TextInput`
   margin-left: ${RFValue(10)}px;
 `;
 
-export const IconContainer = styled.TouchableOpacity``;
+export const IconContainer = styled.View``;
+
+export const IconButton = styled.TouchableOpacity``;
 
 export const IconEmail = styled(MaterialCommunityIcons).attrs({
     name: 'email',

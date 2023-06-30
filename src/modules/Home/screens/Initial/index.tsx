@@ -15,10 +15,13 @@ import {
 } from './styles';
 import { useBreedsQuery } from '../../../../services/catApi';
 import Modal from '../../../../components/CatModal';
+import { useAuth } from '../../../../contexts/lib/Auth';
 
 const Home = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCat, setSelectedCat] = useState(null);
+
+    const {user, logout} = useAuth();
 
     const { data: cats, isLoading, error, fetchNextPage, hasNextPage } = useBreedsQuery();
 
@@ -42,6 +45,10 @@ const Home = () => {
 
     const handleCloseModal = () => {
         setSelectedCat(null);
+    };
+
+    const handleLogout = async () => {
+        logout();
     };
 
 
@@ -75,8 +82,8 @@ const Home = () => {
         <Container>
             <Header>
                 <ViewRow>
-                    <Title>Olá, Maria</Title>
-                    <LogoutButton>
+                    <Title>Olá, {user?.fullName}</Title>
+                    <LogoutButton onPress={handleLogout}>
                         <IconLogout name="power" />
                     </LogoutButton>
                 </ViewRow>

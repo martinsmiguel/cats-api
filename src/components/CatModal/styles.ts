@@ -11,10 +11,11 @@ export const ModalContainer = styled.View`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
 `;
 
 export const ModalContent = styled.View`
-  width: 90%;
+  width: 100%;
   max-width: 400px;
   background-color: ${theme.COLORS.BACKGROUND};
   padding: ${RFValue(16)}px;
@@ -31,7 +32,7 @@ export const ModalTitle = styled.Text`
 `;
 
 export const ModalDescription = styled.Text`
-    font-size: ${RFValue(16)}px;
+    font-size: ${RFValue(14)}px;
     font-family: ${theme.FONTS.REGULAR};
     margin-bottom: ${RFValue(16)}px;
 `;
@@ -62,5 +63,5 @@ export const ModalCloseButton = styled.TouchableOpacity`
 export const ModalCloseIcon = styled(MaterialCommunityIcons).attrs({
     size: RFValue(24),
 })`
-  color: ${theme.COLORS.PRIMARY};
+  color: ${theme.COLORS.TEXT};
 `;

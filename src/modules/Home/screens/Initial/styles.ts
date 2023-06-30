@@ -30,15 +30,15 @@ export const LogoutButton = styled.TouchableOpacity`
 export const IconLogout = styled(MaterialCommunityIcons).attrs({
   size: RFValue(30),
 })`
-  color: ${theme.COLORS.SECONDARY2};
+  color: ${theme.COLORS.TERCIARY};
 `;
 
 export const Title = styled.Text`
-  font-size: ${RFValue(20)}px;
+  font-size: ${RFValue(18)}px;
   font-family: ${theme.FONTS.BOLD};
   margin: ${RFValue(10)}px;
   text-align: center;
-  color: ${theme.COLORS.SECONDARY2};
+  color: ${theme.COLORS.TEXT};
 `;
 
 export const CatItem = styled.TouchableOpacity`
@@ -65,7 +65,7 @@ export const FavoriteButton = styled.TouchableOpacity`
 export const IconFavorite = styled(MaterialCommunityIcons).attrs({
   size: RFValue(24),
 })`
-  color: ${theme.COLORS.PRIMARY};
+  color: ${theme.COLORS.ALERT};
 `;
 
 export const CatList = styled.FlatList`

@@ -13,11 +13,16 @@ import {
     IconPassword,
     EyeIcon,
     BackButton,
-    BackButtonText
+    BackButtonText,
+    IconButton
 } from './styles';
 import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '../../../../contexts/lib/Auth';
+import { Alert } from 'react-native';
 
 const Login = () => {
+
+    const { login, error } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -25,15 +30,25 @@ const Login = () => {
 
     const navigation = useNavigation();
 
-    const handleOnboarding = () => {
-        //@ts-ignore
-        navigation.navigate('Onboarding');
+    const handleGoBack = () => {
+        navigation.goBack();
+    };
+
+    const toggleShowPassword = () => {
+        setShowPassword((prevShowPassword) => !prevShowPassword);
+    };
+
+    const handleSubmit = async () => {
+        const success = await login(email, password);
+        if (!success) {
+            Alert.alert('Erro', 'E-mail ou senha incorretos.');
+        }
     };
 
     return (
         <Container>
             <HeaderImage source={cat} resizeMode="cover" />
-            <BackButton onPress={handleOnboarding}>
+            <BackButton onPress={handleGoBack}>
                 <BackButtonText>Voltar</BackButtonText>
             </BackButton>
             <LoginContainer>
@@ -59,11 +74,11 @@ const Login = () => {
                         onChangeText={setPassword}
                         secureTextEntry={!showPassword}
                     />
-                    <IconContainer>
+                    <IconButton onPress={toggleShowPassword} >
                         <EyeIcon name={showPassword ? 'eye-off' : 'eye'} />
-                    </IconContainer>
+                    </IconButton>
                 </InputContainer>
-                <LoginButton>
+                <LoginButton onPress={handleSubmit}>
                     <ButtonText>Login</ButtonText>
                 </LoginButton>
             </LoginContainer>

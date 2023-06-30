@@ -12,5 +12,5 @@ export const Container = styled.SafeAreaView`
 export const TextTitle = styled.Text`
     font-size: ${RFValue(24)}px;
     font-family: ${theme.FONTS.BOLD};
-    color: ${theme.COLORS.SECONDARY2};
+    color: ${theme.COLORS.TERCIARY};
 `;

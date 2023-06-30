@@ -7,11 +7,8 @@ import {
 } from '@expo-google-fonts/lato';
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Providers from './contexts';
 import Navigation from './routes';
-
-
-const queryClient = new QueryClient();
 
 export default function App() {
 
@@ -26,9 +23,9 @@ export default function App() {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <Providers>
       <StatusBar style="auto" />
       <Navigation />
-    </QueryClientProvider>
+    </Providers>
   );
 }

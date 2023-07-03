@@ -36,3 +36,69 @@ O projeto utiliza o seguinte contexto para gerenciar o estado global da aplicaç
 - **AuthContext:** Contexto responsável pela autenticação do usuário e gerenciamento do estado de login.
 
 Os Contextos são utilizados para fornecer os dados e funcionalidades necessárias para os componentes em toda a aplicação, evitando a necessidade de passar dados através de propriedades de forma direta.
+
+</br>
+
+## Como Executar o Projeto
+
+### Pré-requisitos
+
+Antes de executar o aplicativo, você precisa ter o Node.js, o Yarn e o Expo CLI instalados em seu sistema.
+
+### Instalação das Dependências
+
+1. Clone este repositório para o seu ambiente local.
+
+2. No terminal, navegue para o diretório do projeto.
+
+3. Instale as dependências usando o comando:
+
+<pre><code>yarn install</code></pre>
+
+### Executando em Dispositivo Físico
+
+Você pode executar o aplicativo em um dispositivo físico seguindo estes passos:
+
+1. Instale o aplicativo Expo Go em seu dispositivo Android ou iOS através da loja de aplicativos.
+
+2. No terminal, execute o comando:
+
+<pre><code>yarn start</code></pre>
+
+### Executando no Emulador (iOS)
+
+Para executar o aplicativo no simulador iOS, siga os passos abaixo:
+
+1. Certifique-se de que o Xcode esteja instalado em seu sistema.
+
+2. No terminal, execute o comando:
+
+<pre><code>yarn ios</code></pre>
+
+### Executando no Emulador (Android)
+
+Para executar o aplicativo no emulador Android, siga os passos abaixo:
+
+1. Certifique-se de ter um emulador Android configurado ou um dispositivo Android conectado ao seu computador.
+
+2. No terminal, execute o comando:
+
+<pre><code>yarn android</code></pre>
+
+#### Configurações do SDK do Android
+
+Certifique-se de que as configurações do SDK do Android estejam corretamente configuradas para a versão compatível com o projeto. Recomendamos o uso da versão 33 (Android 11) ou qualquer outra versão compatível.
+
+1. Abra o arquivo `android/build.gradle`.
+
+2. Procure a seção `android {...}`.
+
+3. Verifique se a propriedade `compileSdkVersion` está configurada para a versão desejada. Por exemplo, para a versão 33, a configuração seria:
+
+<pre><code>compileSdkVersion 33</code></pre>
+
+4. Verifique também se a propriedade `targetSdkVersion` está configurada para a mesma versão. Por exemplo:
+
+<pre><code>targetSdkVersion 33</code></pre>
+
+Certifique-se de que todas as outras dependências e plugins do Android estejam atualizados e sejam compatíveis com a versão do SDK configurada.

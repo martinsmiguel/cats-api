@@ -2,10 +2,17 @@ import styled from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
 import theme from "../../../../theme";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Dimensions, Platform } from 'react-native';
 
-export const Container = styled.SafeAreaView`
+const windowHeight = Dimensions.get('screen').height;
+
+
+export const Container = styled.View`
   flex: 1;
-  padding: ${RFValue(16)}px;
+  margin-top: ${Platform.select({
+    ios: `${RFValue(40)}px`,
+    android: `-${RFValue(10)}px`,
+  })};
 `;
 
 export const Header = styled.View`
@@ -20,6 +27,7 @@ export const ViewRow = styled.View`
   justify-content: space-between;
   align-items: center;
   margin-bottom: ${RFValue(8)}px;
+  margin-top: ${RFValue(25)}px;
 `;
 
 export const LogoutButton = styled.TouchableOpacity`
@@ -43,7 +51,10 @@ export const Title = styled.Text`
 
 export const CatItem = styled.TouchableOpacity`
   flex: 0.5;
-  margin: ${RFValue(8)}px;
+  margin: ${Platform.select({
+    ios: `${RFValue(8)}px`,
+    android: `${RFValue(16)}px`,
+  })};
   background-color: ${theme.COLORS.BACKGROUND};
   border-radius: ${RFValue(8)}px;
   overflow: hidden;

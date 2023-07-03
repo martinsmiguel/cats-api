@@ -14,11 +14,12 @@ import {
     EyeIcon,
     BackButton,
     BackButtonText,
-    IconButton
+    IconButton,
+    KeyboardAvoidingContainer
 } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../../../../contexts/lib/Auth';
-import { Alert } from 'react-native';
+import { Alert, Platform } from 'react-native';
 
 const Login = () => {
 
@@ -46,6 +47,9 @@ const Login = () => {
     };
 
     return (
+        <KeyboardAvoidingContainer
+  behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+>
         <Container>
             <HeaderImage source={cat} resizeMode="cover" />
             <BackButton onPress={handleGoBack}>
@@ -83,6 +87,7 @@ const Login = () => {
                 </LoginButton>
             </LoginContainer>
         </Container>
+        </KeyboardAvoidingContainer>
     );
 };
 

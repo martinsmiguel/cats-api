@@ -3,7 +3,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 import theme from '../../../../theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Dimensions, Platform } from 'react-native';
+import { Dimensions, KeyboardAvoidingView, Platform } from 'react-native';
 
 const windowHeight = Dimensions.get('screen').height;
 
@@ -67,6 +67,10 @@ export const Input = styled.TextInput`
   font-family: ${theme.FONTS.REGULAR};
   font-size: ${RFValue(16)}px;
   margin-left: ${RFValue(10)}px;
+`;
+
+export const KeyboardAvoidingContainer = styled(KeyboardAvoidingView)`
+  flex: 1;
 `;
 
 export const IconContainer = styled.View``;

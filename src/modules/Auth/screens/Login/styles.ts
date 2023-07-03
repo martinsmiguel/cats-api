@@ -3,16 +3,23 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 import theme from '../../../../theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Dimensions } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
+
+const windowHeight = Dimensions.get('screen').height;
+
 
 export const Container = styled.View`
     flex: 1;
     background-color: ${theme.COLORS.PRIMARY};
+    justify-content: flex-end;
 `;
 
 export const HeaderImage = styled.Image`
     width: 100%;
-    height: ${RFValue(0.5 * Dimensions.get('window').height)}px;
+    height: ${Platform.select({
+        ios: RFValue(0.6 * windowHeight),
+        android: RFValue(0.65 * windowHeight),
+    })}px;
 `;
 
 export const LoginContainer = styled.View`

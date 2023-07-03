@@ -22,7 +22,6 @@ const Onboarding = () => {
     };
 
     return (
-        <ScrollView>
         <Container>
             <HeaderImage source={cat} resizeMode="cover" />
             <LoginContainer>
@@ -35,7 +34,6 @@ const Onboarding = () => {
                 </LoginButton>
             </LoginContainer>
         </Container>
-        </ScrollView>
     );
 };
 
